@@ -1,0 +1,61 @@
+.blogBound1{
+    display:flexbox;
+    height: 15em;
+    width: 35em;
+    box-sizing: border-box;
+    /* border: .05em solid rgba(58, 33, 33, 0.452); */
+    margin-top: 2em;
+    margin-left: 8em;
+    /* border-radius: 1em; */
+};
+.author_avatar{
+  display: inline;
+  box-sizing: border-box;
+  height:4em;
+}
+.author_avatar p {
+    margin-bottom: 0;
+    color: rgba(87, 134, 177, 0.897);
+}
+.blogText{
+   box-sizing: border-box;
+   min-height: 8.5em;
+   
+}
+.blogTitle{
+    box-sizing: border-box;
+    min-height:2.5em;
+    width:32em;
+    /* border:.05em solid chartreuse; */
+    margin-bottom: 0.25em;
+}
+.blogTitle h3{
+    color:black;
+    font-weight: bold;
+}
+.blogContent{
+    box-sizing: border-box;
+    min-height: 4.55em;
+    width:32em;
+    
+    /* border: .05em solid darkorange; */
+}
+.reactQuill{
+    margin:0;
+    padding: 0;
+}
+.lower-area{
+    display: flex;
+    margin-top: .5em;
+    
+    height: 2em;
+}
+.lower-area1{
+     flex: 1;
+    width: 50%;
+    padding:4px 0px;
+}
+.logo{
+    padding-right: 56px;
+}
+

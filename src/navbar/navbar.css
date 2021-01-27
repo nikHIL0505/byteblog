@@ -1,0 +1,41 @@
+nav{
+  display: flex; 
+  position: -webkit-sticky;
+  position:sticky; 
+  align-items: center;
+  justify-content: center;
+  min-height: 13vh; 
+  border-bottom: 1px solid rgb(146, 146, 146);
+ 
+}
+
+.nav-logo{
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  color:rgba(22, 12, 12, 0.849);
+  transform: scale(1,2);
+  font-family:'Righteous', cursive;
+  font-size:30px;
+  flex: 1;
+}
+.nav-links{
+  display: flex;
+  align-content: center;
+  justify-content: flex-end;
+   margin-bottom: 0;
+  flex: 1;
+}
+.nav-links li{
+  list-style: none;
+  display: inline-flex;
+  align-self:center;
+  color: rgba(87, 134, 177, 0.897);
+  font-family:'Righteous', cursive;
+  font-size: 18px;
+  font-weight: normal;
+  margin-right: 15px;
+}
+.nav-links li h5{
+  margin-bottom: 0;
+}

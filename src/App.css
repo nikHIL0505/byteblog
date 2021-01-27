@@ -1,0 +1,33 @@
+*{
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+.blogCardDisplay{
+  margin-top:6em;
+}
+.fullPost{
+  margin: 6em 10em;
+  border-right: 1px solid rgb(200, 198, 198);
+  border-left: 1px solid rgb(200, 198, 198);
+  padding:0px 25px
+}
+/* .blog-section{
+  margin: 0em;
+  
+} */
+/* .recent-post-section{
+  position: fixed;
+
+} */
+
+/* .recentPost{
+   box-sizing: border-box;
+   margin-top: 4em; 
+   min-height: 12em;
+   min-width:12em;
+   float: left;
+   position: fixed;
+   border: 2px solid black ;
+   
+} */

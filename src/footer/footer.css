@@ -1,0 +1,29 @@
+.footer{
+    display:flex;
+    box-sizing: border-box;
+    height: 30vh;
+    margin-top: 23vh;
+    background-color: black;
+    color:white;
+} 
+.footerGoal{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 1;
+    box-sizing: border-box;
+    font-family:'Righteous', cursive;
+    font-size: 46px;
+}
+.footerNav{
+    display: flex;
+    flex-direction: row;
+    flex: 1;
+    padding: 20px;
+    align-items: center;
+    justify-content: center;
+    color: white;
+}
+.font{
+    padding-left: 9px;
+}

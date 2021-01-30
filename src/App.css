@@ -3,14 +3,94 @@
   padding: 0px;
   box-sizing: border-box;
 }
-.blogCardDisplay{
-  margin-top:6em;
+
+.BlogCard{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.homePageMiddle{
+  display: flex;
+  
+  /* flex-direction: row; */
+  width: 100%;
+}
+.homePageCard{
+  flex: 1.5;
+  margin-left: 170px;
+}
+.homePageSVG{
+  flex: 0.5;
+   margin-right: 100px; 
+}
+
+.editorDiv{
+  margin:7em 6em
+}
+.editorInput{
+  height: 2em;
+  min-width: 16em;
+  font-size: 20px;
+  font-weight: bold;
+  color: rgb(39, 111, 153);
+  border: 2px solid rgb(21, 93, 116);
+  border-radius: 6px;
+  margin-bottom: 1em;
+  padding: 0px 6px;
+  
+}
+.editorTextArea{
+  min-height:2.5em;
+  width: 100%;
+  font-size: 20px;
+  font-weight: 500;
+  color:rgb(32, 124, 177);
+  border: 2px solid rgb(21, 93, 116);
+  border-radius: 6px;
+  padding: 0 6px;
+  margin-bottom: 1em;
+}
+.editorQuill{
+  border: 2px solid rgb(21, 93, 116);
+  border-radius: 6px;
+}
+.ql-container{
+  min-height: 40vh;
 }
 .fullPost{
   margin: 6em 10em;
   border-right: 1px solid rgb(200, 198, 198);
   border-left: 1px solid rgb(200, 198, 198);
-  padding:0px 25px
+ 
+}
+.displayTitle{
+  box-sizing: border-box;
+  padding: 3px 6px;
+  max-height: 6em;
+  font-family: 'Fjalla One', sans-serif;
+  font-size: 45px;
+  font-weight:600;
+  color:rgb(18, 19, 19);
+}
+.displayAuthor{
+  box-sizing: border-box;
+  padding: 0 6px;
+  max-height: 2em;
+  font-size: 15px;
+  font-style: italic;
+  color: black;
+}
+.ql-editor{
+  font-family: sans-serif;
+  font-size: 20px;
+ 
+}
+.displayButton{
+  display: flex;
+  flex-direction:row-reverse;
+  justify-content: space-between;
+  margin-top: 10px;
 }
 /* .blog-section{
   margin: 0em;
@@ -31,3 +111,27 @@
    border: 2px solid black ;
    
 } */
+.LoginPage{
+  box-sizing: border-box;
+  background-color: #4ce76d;
+  margin-top: 25vh;
+  margin-left: 25vh;
+  margin-right: 25vh;
+  margin-bottom: 25vh;
+}
+.LoginPage2{
+  display: flex;
+  flex-direction: column;
+}
+.LoginPage2 input{
+  width: 300px;
+  margin-top: 15px;
+  margin-left: 70px;
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid black;
+}
+.LoginInput{
+   font-size: 20px;
+   
+}

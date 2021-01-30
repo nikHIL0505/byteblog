@@ -4,45 +4,42 @@
 import React, { Component } from 'react';
 import './blogCards.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faUserCircle, faBookmark } from '@fortawesome/free-solid-svg-icons'
+import { faBookmark } from '@fortawesome/free-solid-svg-icons'
+import {Avatar} from '@material-ui/core'
+import Pic from './components/jake-fagan-Y7C7F26fzZM-unsplash.jpg'
 import {Link} from 'react-router-dom'
 import BlogCardTime from './blogCardTime'
-import ReactQuill from 'react-quill'
 class BlogDisplay extends Component {
     constructor(props) {
         super(props);
         this.state = {
             created_at: this.props.body.created_at,
-            author: this.props.body.author,
             title: this.props.body.title,
-            content:  this.props.body.content
+            content:  this.props.body.content,
+            author : this.props.body.author,
+            img:this.props.img
           }
           console.log(this.props.body)
     }
     render() { 
          let body = this.state.content.substring(0,180);
-         body = body+"...";
+         let bodyModified = body.split('<br/>')
+         bodyModified = bodyModified+"...";
          let splitString = this.props.body.title
            splitString = splitString.split(' ' ||'?'||'-').join('-') 
         return ( 
             <div className='blogBound1'>
               <div className="author_avatar">
-                    <p>
-                      <FontAwesomeIcon icon={faUserCircle} size="lg"/>
-                      {" "}{this.state.author}
-                    </p>
-                </div>
+                     <Avatar alt="N" src={this.state.img}/>
+                     <p>{this.state.author}</p>
+              </div>
              <div className='blogText'>
                <div className='blogTitle'>
                   <Link to={`/blogs/${splitString}`} style={{textDecoration:"none"}}><h3>{this.state.title}</h3></Link>
                </div>
                <div className='blogContent'>
-                 <ReactQuill
-                 value={body}
-                 readOnly
-                 theme="bubble"
-                 className="reactQuill"
-                 />
+                <p dangerouslySetInnerHTML={{__html :bodyModified}}/>
+                 
                </div>
                </div>
                 <div className="lower-area">

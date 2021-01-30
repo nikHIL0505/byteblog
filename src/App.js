@@ -1,30 +1,27 @@
 import SignUp from './components/signUp';
 import LogIn from './components/login';
 import {BrowserRouter as Router,Switch,Route} from 'react-router-dom'
-import Navbar from './navbar/navbar'
+import Navbar from './navbar/navbar';
+import Footer from './footer/footer';
 import AboutUs from './About';
 import Homepage from './homepage';
-import Postblog from './Admin/postblog';
 import BlogItems from "./fullBlog"
-//import Practice from './Admin/postEditor'
-//import PostEditor from './Admin/postEditor';
-import Practice from './Admin/practice';
+import Scroll from './scrollOn';
 import PostBlogQuill from './Admin/postBlogQuill'
 function App() {
   return (
        <Router>
           <Navbar/>
+          <Scroll/>
            <Switch>
              <Route exact path='/' component={Homepage}/>
-             <Route path='/home' component={Homepage}/>
              <Route  path="/login" component={LogIn}/>
              <Route path="/aboutus" component={AboutUs}/>
              <Route path="/signup" component={SignUp}/>
-             <Route path="/createblog" component={Postblog}/>
-             <Route path ="/blogs/:title" component={BlogItems}/>
-              <Route path= "/practice" component={Practice}/> 
-             <Route path="/editorPractice" component={PostBlogQuill}/>
+             <Route path ="/blogs/:title" component={BlogItems}/>               
+             <Route path="/editor" component={PostBlogQuill}/>
            </Switch>
+          <Footer/>
        </Router>
               );
 }

@@ -9,6 +9,7 @@ import {Button} from 'react-bootstrap';
 import ReactQuill from 'react-quill';
 import Modal from 'react-bootstrap/Modal';
 import './App.css';
+
 //import ModalHeader from 'react-bootstrap/ModalHeader'
 //import ModalBody from 'react-bootstrap/ModalBody'
 //import ModalFooter from 'react-bootstrap/ModalFooter'
@@ -49,14 +50,17 @@ function BlogItems({match}){
     }
     else{
      return(
+    
       <div className="fullPost">
-         <h1>{state.title}</h1>
-         <p><i>{state.author}</i></p>
+         <div className="displayTitle">{state.title}</div>
+         <div className="displayAuthor">{state.author}</div>
          <ReactQuill
          value={state.content}
          readOnly
          theme="bubble"
+         className="displayContent"
          />
+         <div className="displayButton">
         <Button variant="outline-danger" onClick={() => setDeleteShow(true)}>Delete</Button>
          <Modal show={deleteShow} onHide={() =>setDeleteShow(false)}>
                 <Modal.Header closeButton>
@@ -72,7 +76,7 @@ function BlogItems({match}){
                   </Button>
                 </Modal.Footer>
               </Modal>
-              <Button variant="outline-info" onClick={() => setUpdateShow(true)}>Update</Button>
+              <Button variant="outline-info" onClick={() => setUpdateShow(true)}>Update</Button></div>
             <Modal show={updateShow} onHide={() =>setUpdateShow(false)}>
                 <Modal.Header closeButton>
                   <Modal.Title>Alert!</Modal.Title>
@@ -88,6 +92,7 @@ function BlogItems({match}){
                 </Modal.Footer>
               </Modal>
       </div>
+
      )}
            
 }

@@ -1,37 +1,51 @@
-import React from 'react';
-import {Link} from 'react-router-dom';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faHome, faInfoCircle, faFolderPlus } from '@fortawesome/free-solid-svg-icons'
-//import Style from './App.css'
-import './navbar.css'
-export default function Navbar() {
   
+import React, { useState } from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faBars, faTimes } from '@fortawesome/free-solid-svg-icons'
+import { Link } from 'react-router-dom';
+import { SidebarData } from './sideBarData';
+import './navbar.css';
+
+
+function Navbar() {
+  const [sidebar, setSidebar] = useState(false);
+
+  const showSidebar = () => setSidebar(!sidebar);
+
   return (
-    <nav>
-       <div className="nav-logo">
-         <div>byteblog</div>
-       </div>
-       <ul className="nav-links">
-          <Link to="/home" style={{textDecoration:"none"}}>
-            <li>
-            <FontAwesomeIcon icon={faHome} size="lg"/>
-              <h5>Home</h5> 
-            </li>
-           </Link>
-          <Link to="/aboutus" style={{textDecoration:"none"}}>
-            <li>
-              <FontAwesomeIcon icon={faInfoCircle} size="lg"/>
-               <h5>AboutUs</h5>
-            </li>
+    
+    
+       <>
+        <div className='navbar'>
+          <Link to='#' className='menu-bars'>
+            <FontAwesomeIcon icon={faBars} onClick={showSidebar} />
           </Link>
-          <Link to="/editorPractice" style={{textDecoration:"none"}}>
-            <li>
-              <FontAwesomeIcon icon={faFolderPlus} size="lg"/>
-              <h5>NewPost</h5>
+          <div className='navbar-logo'>
+            byteblog
+          </div>
+        </div>
+        <nav className={sidebar ? 'nav-menu active' : 'nav-menu'}>
+          <ul className='nav-menu-items' onClick={showSidebar}>
+            <li className='navbar-toggle'>
+              <Link to='#' className='menu-bars'>
+                <FontAwesomeIcon icon={faTimes} />
+              </Link>
             </li>
-          </Link>
-       </ul>
-    </nav>
+            {SidebarData.map((item, index) => {
+              return (
+                <li key={index} className={item.cName}>
+                  <Link to={item.path}>
+                    {item.icon}
+                    <span>{item.title}</span>
+                  </Link>
+                </li>
+              );
+            })}
+          </ul>
+        </nav>
+      </>
   );
 }
+
+export default Navbar;
 

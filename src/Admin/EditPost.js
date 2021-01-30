@@ -5,6 +5,7 @@ import 'react-quill/dist/quill.bubble.css';
 import {Button} from 'react-bootstrap';
 import axios from 'axios'
 import {withRouter} from 'react-router-dom'
+import '../App.css'
 
 class UpdatePost extends Component {
     constructor(props) {
@@ -78,30 +79,34 @@ class UpdatePost extends Component {
     render() {
                 if(this.state.count){ 
                 return ( 
-                   <div>
-              <form onSubmit={this.handleSubmit}>
-              <input
-              name="author"
-              label="author"
-              placeholder="Author name"
-              value={this.state.author}
-              onChange={this.handleChange}
-              />
-              <br/>
-              <textarea
-              name="title"
-              label="title"
-              placeholder="title"
-              value={this.state.title}
-              onChange={this.handleChange}/>
-              <ReactQuill
-              formats={this.formats}
-              modules={this.modules}
-              onChange={this.onChange}
-              value={this.state.contents || ' '}
-              />
-              <Button type="submit">Update</Button>
-              </form>
+              <div className="editorDiv">
+                 <form onSubmit={this.handleSubmit}>
+                  <input
+                    name="author"
+                    label="author"
+                    placeholder="Author name"
+                    value={this.state.author}
+                    onChange={this.handleChange}
+                    className="editorInput"
+                   />
+              
+                   <textarea
+                    name="title"
+                    label="title"
+                    placeholder="title"
+                    value={this.state.title}
+                    onChange={this.handleChange}
+                    className="editorTextArea"/>
+                  <ReactQuill
+                    formats={this.formats}
+                    modules={this.modules}
+                    onChange={this.onChange}
+                    value={this.state.contents || ' '}
+                    className="editorQuill"  
+                  />
+                  <br/>
+                   <Button type="submit" variant="outline-secondary" size="lg" block>Update</Button>
+                </form>
             </div>
          );
       }

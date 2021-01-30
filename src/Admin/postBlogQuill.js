@@ -4,7 +4,9 @@ import 'react-quill/dist/quill.snow.css';
 import 'react-quill/dist/quill.bubble.css';
 import {Button} from 'react-bootstrap';
 import axios from 'axios';
-import {withRouter} from 'react-router-dom'
+import {withRouter} from 'react-router-dom';
+import '../App.css'
+
 class PostBlogQuill extends Component {
     constructor(props) {
         super(props);
@@ -79,31 +81,40 @@ class PostBlogQuill extends Component {
         }
         else{
         return ( 
-            <div>
-              <form onSubmit={this.handleSubmit}>
+            <div className="editorDiv">
+            <form onSubmit={this.handleSubmit}>
               <input
               name="author"
               label="author"
               placeholder="Author name"
               value={this.state.author}
               onChange={this.handleChange}
+              className="editorInput"
+              required
               />
-              <br/>
+             
               <textarea
               name="title"
               label="title"
               placeholder="title"
               value={this.state.title}
-              onChange={this.handleChange}/>
+              onChange={this.handleChange}
+              className="editorTextArea"
+              required
+              />
+              
               <ReactQuill
               formats={this.formats}
               modules={this.modules}
               onChange={this.onChange}
               value={this.state.contents || ' '}
+              className="editorQuill"
+              required
               />
-              <Button type="submit">Post</Button>
-              </form>
-            </div>
+              <br/>
+             <Button type="submit" variant="outline-primary" size="lg" block>Post</Button>
+            </form>
+         </div>
          );
         }
     }

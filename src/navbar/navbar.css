@@ -13,10 +13,11 @@
 }
 
 .navbar-logo {
-  color: tomato;
+   color:rgb(70, 161, 184);
   font-family:'Righteous', cursive;
+  
   font-size: 28px; 
-  margin-left: 17.5em;
+  margin-left: 40%;
   margin-bottom: 4px;
 }
 
@@ -25,14 +26,14 @@
   font-size: 1.5rem;
   align-items: center;
   background:none;
-  color: tomato;
+  color:rgb(70, 161, 184);
 }
 .menu-bars :hover{
-  color:rgb(120, 93, 211);
+  color:tomato;
 }
 
 .nav-menu {
-  background-color: tomato;
+  background-image: linear-gradient(rgb(62, 206, 134),rgb(70, 161, 184)) ;
   z-index: 1;
   width: 250px;
   height: 100vh;

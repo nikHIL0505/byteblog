@@ -1,13 +1,11 @@
+
 import React, { Component } from 'react';
-//import Avatar from "@material-ui/core/Avatar";
-import Button from "@material-ui/core/Button";
-import TextField from "@material-ui/core/TextField";
-//import CssBaseline from "@material-ui/core/CssBaseline"
-//import Link from "@material-ui/core/Link";
-import Grid from "@material-ui/core/Grid";
-import Typography from "@material-ui/core/Typography";
-import Container from "@material-ui/core/Container";
+import {Button} from "react-bootstrap"
 import {Link} from 'react-router-dom'
+import Successful from './SuccessRegistration'
+import "../App.css"
+import Image from '../undraw_welcome_cats_thqn.svg'
+import auth from '../firebase'
 
 class SignUp extends Component {
   constructor(props) {
@@ -18,9 +16,12 @@ class SignUp extends Component {
       email:'',
       phoneNumber:'',
       password:'',
-      confirmPassword:' ',
-      loading: false
+      confirmPassword:'',
+      message:'',
+      loading:false
      }
+     this.handleChange = this.handleChange.bind(this)
+     this.handleSubmit = this.handleSubmit.bind(this)
   }
   
 	
@@ -32,121 +33,115 @@ class SignUp extends Component {
 	};
 
 	handleSubmit = (event) => {
-		event.preventDefault();
-		this.setState({ loading: true });
+    event.preventDefault();
+       if(this.state.password !== this.state.confirmPassword){
+         this.setState({
+           message:"Passwords are not matching."
+         })
+       }
+       else{
+         auth.createUserWithEmailAndPassword(this.state.email,this.state.password)
+          .then((userCredential)=>{
+             console.log(userCredential);
+         })
+         .catch((err) => console.log(err))
+
+         this.setState({
+          message:"",
+          loading:true
+        });
+       }
 		}
    render() { 
+     if(this.state.loading){
+       return(
+         <Successful/>
+       )
+    }
+    else{
     return (
-      <Container component="main" maxWidth="xs">
-      <div >              
-        <Typography component="h1" variant="h5">
-          Sign up
-        </Typography>
-        <form  noValidate>
-          <Grid container spacing={2}>
-            <Grid item xs={12} sm={6}>
-              <TextField
-                variant="outlined"
-                required
-                fullWidth
-                id="firstName"
-                label="First Name"
-                name="firstName"
-                autoComplete="firstName"
- 
+    <div className="signUpBackground">
+      <div className="form">
+        <img  style={{marginTop:"150px",height:'180px', width:"180px"}}src={Image} alt="image not found"/>
+        <div className ="signUpForm">
+           <div className="heading">Sign Up</div>                
+            <form onSubmit={this.handleSubmit}>
+             <div className="formLayout">
+               
+               <input
+                type="text"
+                placeholder="First Name"
+                name="firstname"
+                value={this.state.firstname}
                 onChange={this.handleChange}
-              />
-            </Grid>
-            <Grid item xs={12} sm={6}>
-              <TextField
-                variant="outlined"
-                fullWidth
-                id="lastName"
-                label="Last Name"
-                name="lastName"
-                autoComplete="lastName"
+                className="signUpInput"
                 required
+               
+                />
+               
+               <input 
+                type="text"
+                placeholder="Last Name"
+                name="lastname"
+                value={this.state.lastname}
+                onChange={this.handleChange}
+                className="signUpInput"
+                required
+               
+                />
+               
+               <input
+               type="email"
+               placeholder="Email"
+               name="email"
+               value={this.state.email}
+               onChange={this.handleChange}
+               className="signUpInput"
+               required
+               
                />
-            </Grid>
-            <Grid item xs={12} sm={6}>
-              <TextField
-                variant="outlined"
-                required
-                fullWidth
-                id="phoneNumber"
-                label="Phone Number"
+               
+               <input
+                type="phone"
                 name="phoneNumber"
-                autoComplete="phoneNumber"
+                placeholder="Phone"
+                value={this.state.phoneNumber}
+                required
                 pattern="[7-9]{1}[0-9]{9}"
                 onChange={this.handleChange}
-              />
-            </Grid>
-
-            <Grid item xs={12}>
-              <TextField
-                variant="outlined"
-                required
-                fullWidth
-                id="email"
-                label="Email Address"
-                name="email"
-                autoComplete="email"
- 
-                onChange={this.handleChange}
-              />
-            </Grid>
-
-            
-            <Grid item xs={12}>
-              <TextField
-                variant="outlined"
-                required
-                fullWidth
-                name="password"
-                label="Password"
-                type="password"
-                id="password"
-                autoComplete="current-password"
-                onChange={this.handleChange}
-              />
-            </Grid>
-            <Grid item xs={12}>
-              <TextField
-                variant="outlined"
-                required
-                fullWidth
-                name="confirmPassword"
-                label="Confirm Password"
-                type="password"
-                id="confirmPassword"
-                autoComplete="current-password"
-                onChange={this.handleChange}
-              />
-            </Grid>
-          </Grid>
-          <Button
-            type="submit"
-            fullWidth
-            variant="contained"
-            color="primary"
-            onClick={this.handleSubmit}
-          >
-            Sign Up
-
-          </Button>
-          <Grid container justify="flex-end">
-            <Grid item>
-             <p>
-                Already have an account? <Link to='/login'>Login</Link>
-              </p>
-            </Grid>
-          </Grid>
-        </form>
+                className="signUpInput"
+               />
+                
+                <input
+                 type="password"
+                 placeholder="Password"
+                 name="password"
+                 value={this.state.password}
+                 onChange={this.handleChange}
+                 required
+                 className="signUpInput"/>
+                
+                <input 
+                 type="password"
+                 placeholder="Confirm Password"
+                 name="confirmPassword"
+                 value={this.state.confirmPassword}
+                 onChange={this.handleChange}
+                 required
+                 className="signUpInput"
+                 />
+                 <p style={{color:"red"}}>{this.state.message}</p>
+                 <Button type="submit" variant="outline-info">SignUp</Button>
+                 <p>Aready have an account? <Link to="/login">Login</Link></p>
+               </div>
+             </form>
+          </div>
       </div>
-    </Container>
-      );
-   }
+      </div>
+       )
+     }
   }
+}
    
 
 export default SignUp;

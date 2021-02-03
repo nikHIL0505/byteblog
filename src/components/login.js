@@ -6,6 +6,7 @@ import { faUser} from '@fortawesome/free-solid-svg-icons'
 import {Button} from 'react-bootstrap';
 import {Link} from 'react-router-dom'
 import "../App.css"
+import Image2 from "../undraw_authentication_fsn5.svg"
 
 class Login extends Component {
     state = { 
@@ -26,12 +27,14 @@ class Login extends Component {
      }
     render() { 
         return ( 
-            <div className="LoginPage">
-               <Avatar>
-                    <FontAwesomeIcon icon={faUser} />
-                </Avatar>
-                
-                    <form onSubmit={this.handleSubmit}>
+             <div className="LoginPageBackground">
+               <div className="LoginPage">
+                <img  style={{height:"180px", width:"180px"}} alt="image not found" src={Image2}/>
+                <div className="LoginPage1">
+                  <Avatar style={{marginLeft:"36%",marginTop:"35px", width:"80px", height:"80px", backgroundColor:"rgb(221, 105, 125)"}}>
+                     <FontAwesomeIcon icon={faUser} size="2x"/>
+                  </Avatar>
+                 <form onSubmit={this.handleSubmit}>
                      <div className="LoginPage2">
                         <label>Username</label>
                         <input 
@@ -56,11 +59,12 @@ class Login extends Component {
                         className="LoginInput"
                         required
                         />
-                     
-                        <Button type="submit">Login</Button>
+                        <Button type="submit" variant="outline-info">Login</Button>
+                        <p>Already have an account ? <Link to="/signup">SignUp</Link></p>
                         </div>
                     </form>
-                
+                </div>
+              </div>
             </div>
          );
     }

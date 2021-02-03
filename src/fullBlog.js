@@ -2,20 +2,15 @@
 
 import React, {useState, useEffect} from 'react';
 import axios from 'axios';
-//import DeletePostModal from './deletePostModal';
 import DeletePost from './deletePost';
 import UpdatePost from './Admin/EditPost';
 import {Button} from 'react-bootstrap';
 import ReactQuill from 'react-quill';
 import Modal from 'react-bootstrap/Modal';
 import './App.css';
+import AuthorAvatar from './authorAvatar'
+import {Skeleton} from "@material-ui/lab"
 
-//import ModalHeader from 'react-bootstrap/ModalHeader'
-//import ModalBody from 'react-bootstrap/ModalBody'
-//import ModalFooter from 'react-bootstrap/ModalFooter'
-// import {convertToHTML} from 'draft-convert'
-// import {EditorState,convertFromRaw, convertFromHTML} from 'draft-js';
-// import {Editor} from "react-draft-wysiwyg";
 function BlogItems({match}){
      
      const [state, setState] = useState({});  
@@ -23,21 +18,28 @@ function BlogItems({match}){
      const [deleteHide, setDeleteHide] = useState(false); 
      const [updateShow, setUpdateShow] = useState(false);
      const [updateHide, setUpdateHide] = useState(false);
-
+     const [loading, setLoading] = useState(true);
+ 
      useEffect(() => {
            let addSpace = match.params.title
           addSpace = addSpace.split('-').join(' ');
           addSpace = addSpace.split('?').join('&')
          
-          const fetchItems = async() => {
-          await axios.get(`http://advanceblogserver.herokuapp.com/api/posts/get-posts/${addSpace}`)
-               .then(res => setState(res.data.body.posts))
+          const fetchItems = () => {
+              axios.get(`http://advanceblogserver.herokuapp.com/api/posts/get-posts/${addSpace}`)
+               .then(res => {
+                         setState(res.data.body.posts)
+                         setLoading(false)
+                        })
                .catch(err => console.log(err))
              };       
           fetchItems()
           console.log(match)
          },[])           
     
+    
+  
+  
     if(deleteHide){
       return(
         <DeletePost id={state._id}/>
@@ -51,17 +53,24 @@ function BlogItems({match}){
     else{
      return(
     
-      <div className="fullPost">
-         <div className="displayTitle">{state.title}</div>
-         <div className="displayAuthor">{state.author}</div>
-         <ReactQuill
-         value={state.content}
-         readOnly
-         theme="bubble"
-         className="displayContent"
-         />
-         <div className="displayButton">
-        <Button variant="outline-danger" onClick={() => setDeleteShow(true)}>Delete</Button>
+      <div className="fullPage">
+          <div className="fullPost">
+            {loading ?<div><Skeleton animation="wave"  width="80%" height={30}/><Skeleton animation="wave"  width="50%" height={30}/></div> :<div className="displayTitle">{state.title}</div>}
+            
+            {loading ? <Skeleton animation="wave" variant="rect" width="80%" height="100vh" style={{marginTop:"50px"}}/> : <ReactQuill
+             value={state.content}
+             readOnly
+             theme="bubble"
+             className="displayContent"
+            />}
+          </div>
+         <div className="fullIntro">
+         { loading ? <Skeleton animation="wave" variant="circle" width={120} height={120}/> : <AuthorAvatar author={state.author} />}
+         { loading? <Skeleton animation="wave" height={20} width={130}/>   :<p>{state.author}</p>}
+         </div>
+
+         {/* <div className="displayButton">
+         <Button variant="outline-danger" onClick={() => setDeleteShow(true)}>Delete</Button>
          <Modal show={deleteShow} onHide={() =>setDeleteShow(false)}>
                 <Modal.Header closeButton>
                   <Modal.Title>Alert!</Modal.Title>
@@ -90,8 +99,8 @@ function BlogItems({match}){
                     Update
                   </Button>
                 </Modal.Footer>
-              </Modal>
-      </div>
+              </Modal>*/}
+      </div> 
 
      )}
            

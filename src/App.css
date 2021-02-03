@@ -2,6 +2,7 @@
   margin: 0px;
   padding: 0px;
   box-sizing: border-box;
+  font-family: sans-serif;
 }
 
 .BlogCard{
@@ -11,18 +12,20 @@
 }
 
 .homePageMiddle{
+  box-sizing: border-box;
   display: flex;
-  
-  /* flex-direction: row; */
+  flex-direction: row; 
   width: 100%;
+  margin-bottom: 70px;
+  background-image: -moz-linear-gradient(rgb(89, 218, 153),rgb(173, 87, 102));
 }
 .homePageCard{
-  flex: 1.5;
-  margin-left: 170px;
+  margin-left: 70px;
 }
 .homePageSVG{
-  flex: 0.5;
-   margin-right: 100px; 
+  position: -webkit-sticky;
+  position: sticky;
+  top: 80px; 
 }
 
 .editorDiv{
@@ -46,7 +49,7 @@
   font-size: 20px;
   font-weight: 500;
   color:rgb(32, 124, 177);
-  border: 2px solid rgb(21, 93, 116);
+  border: 2px solid rgb(28, 105, 141);
   border-radius: 6px;
   padding: 0 6px;
   margin-bottom: 1em;
@@ -58,12 +61,50 @@
 .ql-container{
   min-height: 40vh;
 }
+
+
+
+/* Full Blog Page CSS */
+
+.fullPage{
+  margin-top: 6em;
+  margin-bottom: 8em;
+  display:flex;
+  flex-direction: row ;
+  width: 100%;
+}
+
 .fullPost{
-  margin: 6em 10em;
+  margin-left: 3em;
   border-right: 1px solid rgb(200, 198, 198);
   border-left: 1px solid rgb(200, 198, 198);
- 
+  flex:1.5
 }
+.fullIntro{
+  box-sizing: border-box;
+  height: 100vh;
+  margin: 10px;
+  padding: 35px;
+  flex: 0.5;
+}
+.fullIntro p{
+  font-family: sans-serif;
+  font-size: 25px;
+  font-weight: bold;
+  font-style: italic;
+  color:rgb(70, 161, 184);
+}
+
+
+
+
+
+
+
+
+
+/* Admin editor CSS */
+
 .displayTitle{
   box-sizing: border-box;
   padding: 3px 6px;
@@ -71,15 +112,7 @@
   font-family: 'Fjalla One', sans-serif;
   font-size: 45px;
   font-weight:600;
-  color:rgb(18, 19, 19);
-}
-.displayAuthor{
-  box-sizing: border-box;
-  padding: 0 6px;
-  max-height: 2em;
-  font-size: 15px;
-  font-style: italic;
-  color: black;
+  color:rgb(70, 161, 184);
 }
 .ql-editor{
   font-family: sans-serif;
@@ -92,46 +125,122 @@
   justify-content: space-between;
   margin-top: 10px;
 }
-/* .blog-section{
-  margin: 0em;
-  
-} */
-/* .recent-post-section{
-  position: fixed;
 
-} */
 
-/* .recentPost{
-   box-sizing: border-box;
-   margin-top: 4em; 
-   min-height: 12em;
-   min-width:12em;
-   float: left;
-   position: fixed;
-   border: 2px solid black ;
-   
-} */
-.LoginPage{
+
+/* Login Page CSS */
+
+
+.LoginPageBackground{
+  width: 100%;
+   height: 120vh;
+  background-image: linear-gradient(rgb(221, 105, 125),rgb(34, 150, 228));
   box-sizing: border-box;
-  background-color: #4ce76d;
+  /* padding-left: 25%;
+  padding-right: 25%;
+  padding-top: 100px;  
+  padding-bottom: 100px; */
+  overflow: hidden;
+} 
+.LoginPage{
   margin-top: 25vh;
-  margin-left: 25vh;
-  margin-right: 25vh;
-  margin-bottom: 25vh;
+  margin-left: 25%;
+  margin-right: 25%;
+  margin-bottom: 30vh;
+  display: flex;
+  flex-direction: row; 
+  background-color: white;
 }
+.LoginPage img{
+  flex:1;
+  margin-top: 120px;
+  
+}
+.LoginPage1{
+  box-sizing: border-box;
+  border-radius: 10px;
+   flex:1
+}
+
 .LoginPage2{
+  margin-top: 25px;
+  margin-left: 10%;
+  margin-right: 10%;
   display: flex;
   flex-direction: column;
 }
 .LoginPage2 input{
-  width: 300px;
-  margin-top: 15px;
-  margin-left: 70px;
   background: transparent;
   border: none;
   border-bottom: 1px solid black;
+  margin-bottom: 25px;
+}
+.LoginPage2 label{
+  font-family: sans-serif;
+  font-size: 20px;
+  color:tomato;
 }
 .LoginInput{
    font-size: 20px;
-   
+   outline: none;
+   color:rgb(170, 15, 41)
+} 
+
+
+
+/* SignUp Page CSS */
+
+.signUpBackground{
+  height: 150vh;
+  width: 100%;
+  overflow: hidden;
+  background-image: linear-gradient(#1DC17D,rgb(109, 206, 245));
+}
+
+.form{
+  margin-top: 25vh;
+  margin-left: 25%;
+  margin-right: 25%;
+  margin-bottom: 30vh;
+  background-color: white;
+  display: flex;
+}
+.form img{
+  flex:1
+}
+.signUpForm{
+ flex: 1;   
+}
+.heading{
+  margin-left: 20%;
+  font-size: 50px;
+  font-weight: bold;
+  color:#1DC17D
+}
+.formLayout{
+  margin-top: 30px;
+  margin-right: 10%;
+  display:flex;
+  flex-direction: column;
+}
+.formLayout label{
+  font-size: 20px;
+  color: rgb(66, 55, 100);
+}
+.signUpInput{
+  border: none;
+  border-bottom: 0.5px solid rgb(139, 137, 137);
+  font-size:20px ;
+  color:rgb(78, 105, 139);
+  outline: none;
+  margin-bottom: 20px;
+}
+
+
+/* SuccessPage */
+.success{
+  margin-top: 15vh;
+  margin-left: 19%;
+  display: flex;
+  flex-direction: column;
 }

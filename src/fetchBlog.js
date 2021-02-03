@@ -8,7 +8,7 @@ import helen from './components/christopher-campbell-rDEOVtE7vOs-unsplash.jpg'
 import kelen from './components/imansyah-muhamad-putera-n4KewLKFOZw-unsplash.jpg'
 import Melen from './components/jake-fagan-Y7C7F26fzZM-unsplash.jpg'
 import Feren from './components/joseph-gonzalez-iFgRcqHznqg-unsplash.jpg'
-import { EventAvailableRounded } from '@material-ui/icons';
+
 
 //import {Link} from 'react-router-dom'
 class DisplayBlog extends Component {
@@ -16,7 +16,7 @@ class DisplayBlog extends Component {
          super(props)
          this.state = {
              body: [],
-             
+          
             }
       }
 
@@ -24,7 +24,8 @@ class DisplayBlog extends Component {
     componentDidMount() {
               axios.get('http://advanceblogserver.herokuapp.com/api/posts/get-posts')
              .then(res => this.setState({
-               body:res.data.body.posts
+               body:res.data.body.posts,
+              
              }))
              .catch(err => console.log(err) )
         
@@ -36,9 +37,22 @@ class DisplayBlog extends Component {
                 <div className="BlogCard">
                   
                    {blogData.map((item, index) => {
-                         const avatar = [helen, kelen, Melen, Feren]
+                         let avatar = ''
+                         switch(item.author){
+                           case "Joseph Col": {
+                             avatar = helen
+                             break
+                           }
+                           case "Nikhil Parashar" : {
+                             avatar = kelen
+                             break
+                           }
+                           default:{
+                             avatar = Melen
+                           }
+                         }
                          return (
-                        <BlogDisplay key={item._id}  body={item} img={avatar[index]}/>
+                        <BlogDisplay key={item._id}  body={item} img={avatar} />
                    )})}
                 
                  </div>

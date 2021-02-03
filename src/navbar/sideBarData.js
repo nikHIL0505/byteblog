@@ -1,6 +1,6 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faHome, faFolderPlus, faSignInAlt, faInfoCircle} from '@fortawesome/free-solid-svg-icons'
+import { faHome, faFolderPlus, faSignInAlt, faInfoCircle, faUser} from '@fortawesome/free-solid-svg-icons'
 
 export const SidebarData = [
   {
@@ -16,9 +16,9 @@ export const SidebarData = [
     cName: 'nav-text'
   },
   {
-    title: 'Add Blog',
-    path: '/editor',
-    icon: <FontAwesomeIcon icon={faFolderPlus} />,
+    title: 'Admin',
+    path: '/login',
+    icon: <FontAwesomeIcon icon={faUser} />,
     cName: 'nav-text'
   },
   {

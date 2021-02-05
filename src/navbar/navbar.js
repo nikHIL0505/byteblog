@@ -1,10 +1,10 @@
-  
 import React, { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faBars, faTimes, faUser } from '@fortawesome/free-solid-svg-icons'
+import { faBars, faTimes } from '@fortawesome/free-solid-svg-icons'
 import { Link } from 'react-router-dom';
 import { SidebarData } from './sideBarData';
 import './navbar.css';
+
 
 
 function Navbar() {
@@ -13,8 +13,6 @@ function Navbar() {
   const showSidebar = () => setSidebar(!sidebar);
 
   return (
-    
-    
        <>
         <div className='navbar'>
           <Link to='#' className='menu-bars'>
@@ -31,7 +29,7 @@ function Navbar() {
                 <FontAwesomeIcon icon={faTimes} />
               </Link>
             </li>
-            {SidebarData.map((item, index) => {
+            {SidebarData().map((item, index) => {
               return (
                 <li key={index} className={item.cName}>
                   <Link to={item.path}>

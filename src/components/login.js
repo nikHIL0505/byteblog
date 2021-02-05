@@ -1,32 +1,38 @@
-import React, { Component } from 'react';
+import React, { useContext, useEffect } from 'react';
 import Avatar from '@material-ui/core/Avatar';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUser} from '@fortawesome/free-solid-svg-icons'
-//import CssBaseline from '@material-ui/core/CssBaseline';
 import {Button} from 'react-bootstrap';
 import {Link} from 'react-router-dom'
 import "../App.css"
 import Image2 from "../undraw_authentication_fsn5.svg"
+import {withRouter} from 'react-router-dom';
+import {firebaseAuth} from '../provider/authProvider'
+const  Login = (props) => {
 
-class Login extends Component {
-    state = { 
-        email:'',
-        password:''
-     }
+    const {handleSignIn, input, setInput, error, setError, token} = useContext(firebaseAuth)
 
-     handleChange = (e) => {
-       const name = e.target.name
-       const value = e.target.value
-       this.setState({
-           [name]:value
-       })
-     }
+    useEffect(() => {
+         if(token){
+           setTimeout(()=>{
+             props.history.push('/')
+           },1000)
+         }       
+    })
 
-     handleSubmit = (e) => {
+
+     function handleChange(e) {
+    const { name, value } = e.target;
+    setInput(prev => ({ ...prev, [name]: value }));
+    if (error.length > 0) {
+      setError([]);
+    }
+  }
+    const  handleSubmit = (e) => {
        e.preventDefault()
+       handleSignIn()
      }
-    render() { 
-        return ( 
+     return ( 
              <div className="LoginPageBackground">
                <div className="LoginPage">
                 <img  style={{height:"180px", width:"180px"}} alt="image not found" src={Image2}/>
@@ -34,7 +40,7 @@ class Login extends Component {
                   <Avatar style={{marginLeft:"36%",marginTop:"35px", width:"80px", height:"80px", backgroundColor:"rgb(221, 105, 125)"}}>
                      <FontAwesomeIcon icon={faUser} size="2x"/>
                   </Avatar>
-                 <form onSubmit={this.handleSubmit}>
+                 <form onSubmit={handleSubmit}>
                      <div className="LoginPage2">
                         <label>Username</label>
                         <input 
@@ -43,10 +49,9 @@ class Login extends Component {
                         id="email"
                         label="email"
                         placeholder="Enter Username"
-                        onChange={this.handleChange}
-                        value={this.state.email}
+                        onChange={handleChange}
+                        value={input.email}
                         className="LoginInput"
-                        autoComplete
                         required/>
                         <label>Password</label>
                         <input
@@ -54,12 +59,13 @@ class Login extends Component {
                         name="password"
                         label="password"
                         placeholder="Enter Password"
-                        onChange={this.handleChange}
-                        value={this.state.password}
+                        onChange={handleChange}
+                        value={input.password}
                         className="LoginInput"
                         required
                         />
-                        <Button type="submit" variant="outline-info">Login</Button>
+                        {error.length > 0 ? error.map(error => <p  style={{color:"red"}}>{error}</p>) : null}
+                        <Button type="submit" variant="outline-danger">Login</Button>
                         <p>Already have an account ? <Link to="/signup">SignUp</Link></p>
                         </div>
                     </form>
@@ -67,7 +73,7 @@ class Login extends Component {
               </div>
             </div>
          );
-    }
+    
 }
  
-export default Login;
+export default withRouter(Login);

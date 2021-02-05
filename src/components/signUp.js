@@ -1,79 +1,46 @@
-
-import React, { Component } from 'react';
+import React, {useContext } from 'react';
 import {Button} from "react-bootstrap"
 import {Link} from 'react-router-dom'
 import Successful from './SuccessRegistration'
 import "../App.css"
 import Image from '../undraw_welcome_cats_thqn.svg'
-import auth from '../firebase'
+import {firebaseAuth} from '../provider/authProvider'
+//import {withRouter} from 'react-router-dom';
 
-class SignUp extends Component {
-  constructor(props) {
-    super(props);
-    this.state = { 
-      firstname:'',
-      lastname: '',
-      email:'',
-      phoneNumber:'',
-      password:'',
-      confirmPassword:'',
-      message:'',
-      loading:false
-     }
-     this.handleChange = this.handleChange.bind(this)
-     this.handleSubmit = this.handleSubmit.bind(this)
-  }
-  
-	
+ const SignUp = () => {
+   
+   const {handleSignUp, input, setInput, error, setError, token} = useContext(firebaseAuth)
 
-	handleChange = (event) => {
-		this.setState({
-			[event.target.name]: event.target.value
-		});
-	};
 
-	handleSubmit = (event) => {
-    event.preventDefault();
-       if(this.state.password !== this.state.confirmPassword){
-         this.setState({
-           message:"Passwords are not matching."
-         })
-       }
-       else{
-         auth.createUserWithEmailAndPassword(this.state.email,this.state.password)
-          .then((userCredential)=>{
-             console.log(userCredential);
-         })
-         .catch((err) => console.log(err))
+    const handleSubmit = (e) => {
+      e.preventDefault();
+      handleSignUp();
+    };
 
-         this.setState({
-          message:"",
-          loading:true
-        });
-       }
-		}
-   render() { 
-     if(this.state.loading){
-       return(
-         <Successful/>
-       )
+    const handleChange = (e) =>{
+      const {name,value} = e.target
+      setInput(prev => ({...prev, [name]:value}))
+      if(error.length > 0){
+        setError([])
+      }
     }
-    else{
+   
+    if(!token){
     return (
     <div className="signUpBackground">
       <div className="form">
         <img  style={{marginTop:"150px",height:'180px', width:"180px"}}src={Image} alt="image not found"/>
         <div className ="signUpForm">
            <div className="heading">Sign Up</div>                
-            <form onSubmit={this.handleSubmit}>
+            <form onSubmit={handleSubmit}>
              <div className="formLayout">
                
                <input
                 type="text"
                 placeholder="First Name"
                 name="firstname"
-                value={this.state.firstname}
-                onChange={this.handleChange}
+                value={input.firstname}
+                onChange={handleChange}
                 className="signUpInput"
                 required
                
@@ -83,8 +50,8 @@ class SignUp extends Component {
                 type="text"
                 placeholder="Last Name"
                 name="lastname"
-                value={this.state.lastname}
-                onChange={this.handleChange}
+                value={input.lastname}
+                onChange={handleChange}
                 className="signUpInput"
                 required
                
@@ -94,8 +61,8 @@ class SignUp extends Component {
                type="email"
                placeholder="Email"
                name="email"
-               value={this.state.email}
-               onChange={this.handleChange}
+               value={input.email}
+               onChange={handleChange}
                className="signUpInput"
                required
                
@@ -105,10 +72,10 @@ class SignUp extends Component {
                 type="phone"
                 name="phoneNumber"
                 placeholder="Phone"
-                value={this.state.phoneNumber}
+                value={input.phoneNumber}
                 required
                 pattern="[7-9]{1}[0-9]{9}"
-                onChange={this.handleChange}
+                onChange={handleChange}
                 className="signUpInput"
                />
                 
@@ -116,8 +83,8 @@ class SignUp extends Component {
                  type="password"
                  placeholder="Password"
                  name="password"
-                 value={this.state.password}
-                 onChange={this.handleChange}
+                 value={input.password}
+                 onChange={handleChange}
                  required
                  className="signUpInput"/>
                 
@@ -125,23 +92,26 @@ class SignUp extends Component {
                  type="password"
                  placeholder="Confirm Password"
                  name="confirmPassword"
-                 value={this.state.confirmPassword}
-                 onChange={this.handleChange}
+                 value={input.confirmPassword}
+                 onChange={handleChange}
                  required
                  className="signUpInput"
                  />
-                 <p style={{color:"red"}}>{this.state.message}</p>
-                 <Button type="submit" variant="outline-info">SignUp</Button>
+                 {error.length>0 ? error.map(error => <p style={{color:"red"}}>{error}</p>) : null }
+                 <Button type="submit" variant="outline-success">SignUp</Button>
                  <p>Aready have an account? <Link to="/login">Login</Link></p>
                </div>
              </form>
           </div>
       </div>
       </div>
-       )
-     }
-  }
+       )}
+       else {
+         return <Successful/>
+       }
 }
+
+
    
 
 export default SignUp;

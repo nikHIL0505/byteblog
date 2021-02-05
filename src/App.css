@@ -82,6 +82,9 @@
 }
 .fullIntro{
   box-sizing: border-box;
+  position:-webkit-sticky;
+  position:sticky;
+  top:150px;
   height: 100vh;
   margin: 10px;
   padding: 35px;
@@ -120,11 +123,10 @@
  
 }
 .displayButton{
-  display: flex;
-  flex-direction:row-reverse;
-  justify-content: space-between;
+  margin-left: 5%;
   margin-top: 10px;
 }
+
 
 
 

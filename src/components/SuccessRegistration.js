@@ -6,8 +6,8 @@ import "../App.css";
 function UserData(props) {
     useEffect(()=>{   
         setTimeout(()=>{
-            props.history.push('/login')
-       }, 4000)
+            props.history.push('/')
+       }, 2000)
 
        
     })

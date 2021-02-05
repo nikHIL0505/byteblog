@@ -76,7 +76,7 @@ class PostBlogQuill extends Component {
     render() { 
         if(this.state.count){
             return (
-                <h1>{this.state.message}</h1>
+                <h1 style={{marginTop:"300px",marginBottom:"500px", color:"green"}}>{this.state.message}</h1>
             )
         }
         else{

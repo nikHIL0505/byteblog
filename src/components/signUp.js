@@ -3,7 +3,7 @@ import {Button} from "react-bootstrap"
 import {Link} from 'react-router-dom'
 import Successful from './SuccessRegistration'
 import "../App.css"
-import Image from '../undraw_welcome_cats_thqn.svg'
+import SignUpIllustration from '../undraw_welcome_cats_thqn.svg'
 import {firebaseAuth} from '../provider/authProvider'
 //import {withRouter} from 'react-router-dom';
 
@@ -29,7 +29,7 @@ import {firebaseAuth} from '../provider/authProvider'
     return (
     <div className="signUpBackground">
       <div className="form">
-        <img  style={{marginTop:"150px",height:'180px', width:"180px"}}src={Image} alt="image not found"/>
+        <img  style={{marginTop:"150px",height:'180px', width:"180px"}} src={SignUpIllustration} alt="image not found"/>
         <div className ="signUpForm">
            <div className="heading">Sign Up</div>                
             <form onSubmit={handleSubmit}>

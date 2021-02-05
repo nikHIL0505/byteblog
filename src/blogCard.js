@@ -17,7 +17,7 @@ class BlogDisplay extends Component {
             img:this.props.img,
             loading: true
           }
-          console.log(this.props.body)
+         
         }
         componentDidMount = () =>{
           if(this.state.title){

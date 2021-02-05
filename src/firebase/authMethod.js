@@ -13,7 +13,7 @@
              localStorage.setItem('token', token)
              
              setToken(window.localStorage.token)
-             console.log(res)
+             
           })
           .catch(err => {
                 setError(prev =>([...prev, err.message]))
@@ -29,7 +29,7 @@
 
               localStorage.setItem('token', token);
               setToken(window.localStorage.token);
-              console.log(res)
+             
           })
           .catch(err => {
               setError(prev => ([...prev,err.message]))
@@ -44,7 +44,7 @@
              localStorage.removeItem('token')
              setToken(null)
              setInput("")
-             console.log(res)
+             
          })
          .catch(err => {
              setError(prev => ([...prev,err.message]))

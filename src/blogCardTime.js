@@ -40,9 +40,8 @@ function Time(props) {
          case '11': 
             month="Nov"
             break;
-         case '12':
+         default :
             month="Dec"
-            break;
          }
    return(
        <p style={{color:' rgb(126, 123, 123)'}}>{month + " " + date + "," + " " + year}</p>

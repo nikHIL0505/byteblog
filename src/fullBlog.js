@@ -37,7 +37,7 @@ function BlogItems({match}){
                .catch(err => console.log(err))
              };       
           fetchItems()
-          console.log(match)
+          
          },[])           
     
     

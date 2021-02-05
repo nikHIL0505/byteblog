@@ -1,10 +1,6 @@
 import React, { Component } from 'react';
 import Axios from 'axios';
-//import { Redirect } from 'react-router-dom';
-// import ModalDialog from 'react-bootstrap/ModalDialog'
-// import ModalHeader from 'react-bootstrap/ModalHeader'
-// import ModalBody from 'react-bootstrap/ModalBody'
-//import DeleteModal from "./deletePostModal"
+
 import {withRouter} from 'react-router-dom'
 class DeletePost extends Component {
     constructor(props){

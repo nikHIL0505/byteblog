@@ -13,7 +13,7 @@ import './App.css'
 
     useEffect(()=>{
         setState(props.author)
-    })
+    },[props.author])
 
          if(state==='Joseph Col'){
             return (

@@ -5,7 +5,7 @@ import { faUser} from '@fortawesome/free-solid-svg-icons'
 import {Button} from 'react-bootstrap';
 import {Link} from 'react-router-dom'
 import "../App.css"
-import Image2 from "../undraw_authentication_fsn5.svg"
+import LoginIllustration from "../undraw_authentication_fsn5.svg"
 import {withRouter} from 'react-router-dom';
 import {firebaseAuth} from '../provider/authProvider'
 const  Login = (props) => {
@@ -35,7 +35,7 @@ const  Login = (props) => {
      return ( 
              <div className="LoginPageBackground">
                <div className="LoginPage">
-                <img  style={{height:"180px", width:"180px"}} alt="image not found" src={Image2}/>
+                <img  style={{height:"180px", width:"180px"}} alt="image not found" src={LoginIllustration}/>
                 <div className="LoginPage1">
                   <Avatar style={{marginLeft:"36%",marginTop:"35px", width:"80px", height:"80px", backgroundColor:"rgb(221, 105, 125)"}}>
                      <FontAwesomeIcon icon={faUser} size="2x"/>

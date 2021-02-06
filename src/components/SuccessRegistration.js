@@ -16,7 +16,7 @@ function UserData(props) {
      
      return(
          <div className="success">
-             <img alt="image not found" src={Success} style={{height:"400px",width:"700px"}}/>
+             <img alt="Registration Successful" src={Success} style={{height:"400px",width:"700px"}}/>
              <h1 style={{fontSize:"60px", color:"green"}}>You have Successfull Registered.</h1>
          </div>
          

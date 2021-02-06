@@ -35,7 +35,7 @@ const  Login = (props) => {
      return ( 
              <div className="LoginPageBackground">
                <div className="LoginPage">
-                <img  style={{height:"180px", width:"180px"}} alt="image not found" src={LoginIllustration}/>
+                <img  style={{height:"180px", width:"180px"}} alt="Login" src={LoginIllustration}/>
                 <div className="LoginPage1">
                   <Avatar style={{marginLeft:"36%",marginTop:"35px", width:"80px", height:"80px", backgroundColor:"rgb(221, 105, 125)"}}>
                      <FontAwesomeIcon icon={faUser} size="2x"/>

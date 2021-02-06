@@ -1,5 +1,4 @@
 //This component is for practice purpose  of dynamic routing
-
 import React, {useContext, useState, useEffect} from 'react';
 import axios from 'axios';
 import DeletePost from './deletePost';
@@ -24,10 +23,9 @@ function BlogItems({match}){
      const {token} = useContext(firebaseAuth);
  
      useEffect(() => {
-           let addSpace = match.params.title
+          let addSpace = match.params.title
           addSpace = addSpace.split('-').join(' ');
-          addSpace = addSpace.split('+').join('-')
-         
+          addSpace = addSpace.split('+').join('-');
           const fetchItems = () => {
               axios.get(`http://advanceblogserver.herokuapp.com/api/posts/get-posts/${addSpace}`)
                .then(res => {
@@ -36,9 +34,8 @@ function BlogItems({match}){
                         })
                .catch(err => console.log(err))
              };       
-          fetchItems()
-          
-         },[])           
+          fetchItems();
+         }, [match.params.title])           
     
     
   

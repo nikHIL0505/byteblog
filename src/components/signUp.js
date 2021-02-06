@@ -29,7 +29,7 @@ import {firebaseAuth} from '../provider/authProvider'
     return (
     <div className="signUpBackground">
       <div className="form">
-        <img  style={{marginTop:"150px",height:'180px', width:"180px"}} src={SignUpIllustration} alt="image not found"/>
+        <img  style={{marginTop:"150px",height:'180px', width:"180px"}} src={SignUpIllustration} alt="SignUp"/>
         <div className ="signUpForm">
            <div className="heading">Sign Up</div>                
             <form onSubmit={handleSubmit}>

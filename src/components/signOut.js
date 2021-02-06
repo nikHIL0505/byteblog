@@ -20,7 +20,7 @@ const SignOut = (props) =>{
     else if(!signOut && !signOutModal){
         props.history.push('/')
     }
-  })
+  }, [signOut, handleSignOut, props.history, signOutModal])
     return (
         <Modal show={signOutModal} onHide={() =>setSignOutModal(false)}>
                 <Modal.Header closeButton>

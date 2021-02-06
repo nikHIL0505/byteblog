@@ -1,7 +1,6 @@
- import firebaseConfig from './firebaseIndex'
- import firebase from 'firebase'
-
- export const authMethod = {
+import firebase from 'firebase/app';
+import  firebaseConfig from './firebaseIndex';
+export const authMethod = {
      
      // Auth method for signUp
       signUp: (email, password, setError, setToken) => {
@@ -9,10 +8,8 @@
           .then(async res => {
             const token = await Object.entries(res.user)[5][1].b  
              // set token to localStorage
-
-             localStorage.setItem('token', token)
-             
-             setToken(window.localStorage.token)
+             localStorage.setItem('token', token);           
+             setToken(window.localStorage.token);
              
           })
           .catch(err => {

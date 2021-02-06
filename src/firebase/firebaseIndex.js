@@ -1,7 +1,5 @@
-import firebase from 'firebase';
+import firebase from 'firebase/app';
 import 'firebase/auth';
-import 'firebase/app'
-//require('dotenv').config()
 
    // Your web app's Firebase configuration
      const firebaseConfig = {
@@ -16,5 +14,5 @@ import 'firebase/app'
    firebase.initializeApp(firebaseConfig);
    firebase.auth();
 
-   export default firebaseConfig;
+  export default firebaseConfig;
 

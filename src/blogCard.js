@@ -28,8 +28,8 @@ class BlogDisplay extends Component {
         }
 
     render() { 
-         let body = this.state.content.substring(0,180);
-        //  let bodyModified = body.split('<br/>')
+         let body = this.state.content.substring(0,300);
+          body = body.split('<br/>')
         //  bodyModified = bodyModified + "...";
         body = body+"..."
          let splitString = this.props.body.title

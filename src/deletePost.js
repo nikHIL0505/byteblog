@@ -11,7 +11,7 @@ class DeletePost extends Component {
     }
 
     componentDidMount(){
-           Axios.post('http://advanceblogserver.herokuapp.com/api/posts/delete-post',{
+           Axios.post('https://cors-anywhere.herokuapp.com/advanceblogserver.herokuapp.com/api/posts/delete-post',{
             id:this.props.id
         })
         .then(res => this.setState({

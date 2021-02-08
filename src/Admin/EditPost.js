@@ -59,7 +59,7 @@ class UpdatePost extends Component {
     handleSubmit = (e) => {
         e.preventDefault()
         console.log(this.state)
-          axios.post('http://advanceblogserver.herokuapp.com/api/posts/edit-post',{
+          axios.post('https://cors-anywhere.herokuapp.com/advanceblogserver.herokuapp.com/api/posts/edit-post',{
               id: this.state.id,
               data: {
                       title:this.state.title,

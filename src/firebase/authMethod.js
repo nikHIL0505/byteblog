@@ -1,5 +1,6 @@
 import firebase from 'firebase/app';
-import  firebaseConfig from './firebaseIndex';
+import firebaseConfig from './firebaseIndex';
+
 export const authMethod = {
      
      // Auth method for signUp

@@ -2,31 +2,61 @@
   margin: 0px;
   padding: 0px;
   box-sizing: border-box;
-  font-family: sans-serif;
+  font-family: 'Montserrat', sans-serif;
+ 
 }
 
-.BlogCard{
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
+
+
+.homePage{
+  padding-bottom: 130px;
+  background-color: rgba(76, 190, 123, 0.253); 
+  /* height: 800px; */ 
+  width: 100%;
+  
+} 
+
+.homePageTop{
+  position:absolute;
+  background-image: url(C:\Users\HP\blogging-website\src\homepage1.jpg);
+  background-attachment: fixed;
+  background-position: center;
+  width: 100%;
+  height: 100%;
+  margin-top: 0;
+  z-index: -1;
+  display: table;
+}
+.Overlay{
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.294);
+  display: table-cell;
+  font-size: 45px;
+  font-weight: 600;
+  color: white;
+  text-align: center;
+  vertical-align: middle;
+  top: 50%;
+
 }
 
 .homePageMiddle{
+  position: relative;
   box-sizing: border-box;
+  display: flex; 
+  width: 75%;
+  
+}
+.BlogCard{
   display: flex;
-  flex-direction: row; 
-  width: 100%;
-  margin-bottom: 70px;
-  background-image: -moz-linear-gradient(rgb(89, 218, 153),rgb(173, 87, 102));
+  flex-direction: column;
+  margin-left: 20%;  
+  margin-top: 500px;
 }
-.homePageCard{
-  margin-left: 70px;
-}
-.homePageSVG{
-  position: -webkit-sticky;
-  position: sticky;
-  top: 80px; 
-}
+
+
+
 
 .editorDiv{
   margin:7em 6em
@@ -152,6 +182,8 @@
   display: flex;
   flex-direction: row; 
   background-color: white;
+  border-radius: 50px 80px;
+  padding: 30px;
 }
 .LoginPage img{
   flex:1;
@@ -167,7 +199,7 @@
 .LoginPage2{
   margin-top: 25px;
   margin-left: 10%;
-  margin-right: 10%;
+  margin-right: 10%; 
   display: flex;
   flex-direction: column;
 }
@@ -175,7 +207,7 @@
   background: transparent;
   border: none;
   border-bottom: 1px solid black;
-  margin-bottom: 25px;
+  margin-bottom: 45px;
 }
 .LoginPage2 label{
   font-family: sans-serif;
@@ -206,6 +238,8 @@
   margin-bottom: 30vh;
   background-color: white;
   display: flex;
+  padding: 40px;
+  border-radius: 20px 70px;
 }
 .form img{
   flex:1
@@ -214,10 +248,10 @@
  flex: 1;   
 }
 .heading{
-  margin-left: 20%;
+  margin-left: 36%;
   font-size: 50px;
-  font-weight: bold;
-  color:#1DC17D
+  font-weight: 800;
+  color:black
 }
 .formLayout{
   margin-top: 30px;
@@ -235,7 +269,7 @@
   font-size:20px ;
   color:rgb(78, 105, 139);
   outline: none;
-  margin-bottom: 20px;
+  margin-bottom: 40px;
 }
 
 

@@ -37,9 +37,9 @@ const  Login = (props) => {
                <div className="LoginPage">
                 <img  style={{height:"180px", width:"180px"}} alt="Login" src={LoginIllustration}/>
                 <div className="LoginPage1">
-                  <Avatar style={{marginLeft:"36%",marginTop:"35px", width:"80px", height:"80px", backgroundColor:"rgb(221, 105, 125)"}}>
+                  {/* <Avatar style={{marginLeft:"36%",marginTop:"35px", width:"80px", height:"80px", backgroundColor:"rgb(221, 105, 125)"}}>
                      <FontAwesomeIcon icon={faUser} size="2x"/>
-                  </Avatar>
+                  </Avatar> */}
                  <form onSubmit={handleSubmit}>
                      <div className="LoginPage2">
                         <label>Username</label>
@@ -66,7 +66,7 @@ const  Login = (props) => {
                         />
                         {error.length > 0 ? error.map(error => <p  style={{color:"red"}}>{error}</p>) : null}
                         <Button type="submit" variant="outline-danger">Login</Button>
-                        <p>Already have an account ? <Link to="/signup">SignUp</Link></p>
+                        <p style={{marginTop:"35px"}}>Already have an account ? <Link to="/signup">SignUp</Link></p>
                         </div>
                     </form>
                 </div>

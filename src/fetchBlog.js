@@ -23,7 +23,7 @@ class DisplayBlog extends Component {
 
 
     componentDidMount() {
-              axios.get('http://advanceblogserver.herokuapp.com/api/posts/get-posts')
+              axios.get('https://cors-anywhere.herokuapp.com/advanceblogserver.herokuapp.com/api/posts/get-posts')
              .then(res => this.setState({
                body:res.data.body.posts,
                loading:false
@@ -36,7 +36,7 @@ class DisplayBlog extends Component {
         const blogData = this.state.body
        return (
                 <div className="BlogCard">
-                  {this.state.loading ? <Skeleton animation="wave" variant="rect" height="500px" width="600px" /> :
+                  {this.state.loading ? <div><Skeleton animation="wave" variant="rect" height="250px" width="800px" style={{marginTop:"200px"}}/><Skeleton animation="wave" variant="rect" height="250px" width="800px" style={{marginTop:"150px"}}/></div> :
                     blogData.map((item, index) => {
                          let avatar = ''
                          switch(item.author){

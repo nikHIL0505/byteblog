@@ -29,7 +29,7 @@ import {firebaseAuth} from '../provider/authProvider'
     return (
     <div className="signUpBackground">
       <div className="form">
-        <img  style={{marginTop:"150px",height:'180px', width:"180px"}} src={SignUpIllustration} alt="SignUp"/>
+        {/* <img  style={{marginTop:"150px",height:'180px', width:"180px"}} src={SignUpIllustration} alt="SignUp"/> */}
         <div className ="signUpForm">
            <div className="heading">Sign Up</div>                
             <form onSubmit={handleSubmit}>
@@ -99,7 +99,7 @@ import {firebaseAuth} from '../provider/authProvider'
                  />
                  {error.length>0 ? error.map(error => <p style={{color:"red"}}>{error}</p>) : null }
                  <Button type="submit" variant="outline-success">SignUp</Button>
-                 <p>Aready have an account? <Link to="/login">Login</Link></p>
+                 <p style={{marginTop:"30px"}}>Aready have an account? <Link to="/login">Login</Link></p>
                </div>
              </form>
           </div>

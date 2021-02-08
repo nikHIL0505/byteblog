@@ -3,7 +3,6 @@ import {Button} from "react-bootstrap"
 import {Link} from 'react-router-dom'
 import Successful from './SuccessRegistration'
 import "../App.css"
-import SignUpIllustration from '../undraw_welcome_cats_thqn.svg'
 import {firebaseAuth} from '../provider/authProvider'
 //import {withRouter} from 'react-router-dom';
 

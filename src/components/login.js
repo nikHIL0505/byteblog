@@ -1,7 +1,4 @@
 import React, { useContext, useEffect } from 'react';
-import Avatar from '@material-ui/core/Avatar';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faUser} from '@fortawesome/free-solid-svg-icons'
 import {Button} from 'react-bootstrap';
 import {Link} from 'react-router-dom'
 import "../App.css"

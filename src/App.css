@@ -97,8 +97,9 @@
 /* Full Blog Page CSS */
 
 .fullPage{
-  margin-top: 6em;
-  margin-bottom: 8em;
+  background-color:rgb(226, 241, 253) ;
+  padding-top: 6em;
+  padding-bottom: 8em;
   display:flex;
   flex-direction: row ;
   width: 100%;
@@ -184,6 +185,8 @@
   background-color: rgba(255, 255, 255, 0.979);
   border-radius: 50px 80px;
   padding: 30px;
+  box-shadow: 2px 3px 4px   rgb(65, 138, 180);
+     transition:  0.3s;
 }
 .LoginPage img{
   flex:1;
@@ -240,6 +243,8 @@
   display: flex;
   padding: 40px;
   border-radius: 20px 70px;
+  box-shadow: 2px 3px 4px   rgb(65, 138, 180);
+     transition:  0.3s;
 }
 .form img{
   flex:1

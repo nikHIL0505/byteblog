@@ -1,13 +1,13 @@
 import React, {Suspense, lazy} from 'react';
 import SignUp from './components/signUp';
 import {BrowserRouter as Router,Switch,Route} from 'react-router-dom'
-import Footer from './footer/footer';
 import BlogItems from "./fullBlog"
 import Scroll from './scrollOn';
 import PostBlogQuill from './Admin/postBlogQuill';
 import ProtectedRoute from './Admin/protectedRoute';
 const Home = lazy(() => import('./homepage'));
 const Navbar = lazy(() => import('./navbar/navbar'));
+const Footer = lazy(() => import('./footer/footer'));
 const LogIn  = lazy(() => import('./components/login'));
 const AboutUs  = lazy(() => import('./About'));
 const SignOut = lazy(() => import('./components/signOut'));

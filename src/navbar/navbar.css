@@ -1,5 +1,5 @@
 .navbar {
-  background-color: rgba(0, 0, 0,0.8);
+  background-color: rgb(226, 241, 253);
   position: fixed;
   box-sizing: border-box;
   z-index: 1;
@@ -14,14 +14,13 @@
 .navbar-logo {
    color:rgb(70, 161, 184);
   font-family:'Righteous', cursive;
-  
   font-size: 28px; 
   margin-right: 48%;
   margin-bottom: 4px;
 }
 
 .menu-bars {
-  margin-left: 2rem;
+  margin-left: 1vw;
   font-size: 1.5rem;
   align-items: center;
   background:none;
@@ -33,7 +32,7 @@
 
 .nav-menu {
   /* background-image: linear-gradient(rgb(62, 206, 134),rgb(70, 161, 184)) ; */
-  background-image: linear-gradient(rgb(84, 150, 185),rgba(68, 209, 142, 0.986));
+  background-color:rgb(196, 236, 247) ;
   z-index: 1;
   width: 250px;
   height: 100vh;
@@ -62,7 +61,7 @@
 .nav-text a {
   text-decoration: none;
   /* color: #f8f8ff; */
-  color:rgb(227, 240, 243);
+  color:rgba(7, 66, 121, 0.959);
   font-size: 18px;
   width: 95%;
   height: 100%;
@@ -74,7 +73,7 @@
 
 .nav-text a:hover {
   /* background-color:rgb(10, 10, 10) ; */
-  background-color: rgb(2, 2, 2);
+  background-color: rgb(253, 253, 253);
 }
 
 .nav-menu-items {
@@ -82,7 +81,7 @@
 }
 
 .navbar-toggle {
-  background-color: #111111;
+  background-color: rgb(196, 236, 247);
   width: 100%;
   height: 50px;
   display: flex;
@@ -90,5 +89,5 @@
 }
 
 span {
-  margin-left: 16px;
+  margin-left: 1.5%;
 }

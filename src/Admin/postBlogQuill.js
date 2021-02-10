@@ -58,7 +58,7 @@ class PostBlogQuill extends Component {
     handleSubmit = (e) => {
         e.preventDefault()
         console.log(this.state)
-          axios.post('https://cors-anywhere.herokuapp.com/advanceblogserver.herokuapp.com/api/posts/add-post',{
+          axios.post('https://cors-anywhere.herokuapp.com/http://advanceblogserver.herokuapp.com/api/posts/add-post',{
               title:this.state.title,
               content:this.state.contents,
               author:this.state.author

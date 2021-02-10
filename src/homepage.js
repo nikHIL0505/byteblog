@@ -1,10 +1,10 @@
-import React from 'react';
+import React, {PureComponent} from 'react';
 import DisplayBlog from './fetchBlog';
 import './App.css';
 
 
-function Homepage(){
-  
+class Homepage extends PureComponent {
+   render() { 
    return (
           <div className="homePage">
              <div className="homePageTop">
@@ -16,7 +16,6 @@ function Homepage(){
                   <DisplayBlog/> 
                 </div>
            </div>
-   )
+   )}
 }
-
 export default Homepage;

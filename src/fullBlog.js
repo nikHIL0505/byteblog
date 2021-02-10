@@ -27,7 +27,7 @@ function BlogItems({match}){
           addSpace = addSpace.split('-').join(' ');
           addSpace = addSpace.split('+').join('-');
           const fetchItems = () => {
-              axios.get(`https://cors-anywhere.herokuapp.com/advanceblogserver.herokuapp.com/api/posts/get-posts/${addSpace}`)
+              axios.get(`https://api.allorigins.win/raw?url=http:/advanceblogserver.herokuapp.com/api/posts/get-posts/${addSpace}`)
                .then(res => {
                          setState(res.data.body.posts);
                          setLoading(false)

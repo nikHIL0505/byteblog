@@ -1,6 +1,6 @@
 
 //This component will fetch all blogs-data.
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import './App.js';
 import axios from 'axios';
 import BlogDisplay from './blogCard.js'
@@ -12,7 +12,7 @@ import Nikita from './components/omid-armin-xOjzehJ49Hk-unsplash.jpg'
 import {Skeleton} from "@material-ui/lab"
 
 //import {Link} from 'react-router-dom'
-class DisplayBlog extends Component {
+class DisplayBlog extends PureComponent {
      constructor(props) {
          super(props)
          this.state = {
@@ -23,7 +23,7 @@ class DisplayBlog extends Component {
 
 
     componentDidMount() {
-              axios.get('https://cors-anywhere.herokuapp.com/advanceblogserver.herokuapp.com/api/posts/get-posts')
+              axios.get('https://api.allorigins.win/raw?url=http:/advanceblogserver.herokuapp.com/api/posts/get-posts')
              .then(res => this.setState({
                body:res.data.body.posts,
                loading:false
@@ -36,7 +36,7 @@ class DisplayBlog extends Component {
         const blogData = this.state.body
        return (
                 <div className="BlogCard">
-                  {this.state.loading ? <div><Skeleton animation="wave" variant="rect" height="250px" width="800px" style={{marginTop:"200px"}}/><Skeleton animation="wave" variant="rect" height="250px" width="800px" style={{marginTop:"150px"}}/></div> :
+                  {this.state.loading ? <div><Skeleton animation="wave" variant="rect" height="250px" width="60vw" style={{marginTop:"10vh"}}/><Skeleton animation="wave" variant="rect" height="250px" width="60vw" style={{marginTop:"8vh"}}/></div> :
                     blogData.map((item, index) => {
                          let avatar = ''
                          switch(item.author){

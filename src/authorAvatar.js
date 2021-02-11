@@ -17,25 +17,25 @@ import './App.css'
 
          if(state==='Joseph Col'){
             return (
-            <Avatar alt="J" src={Joseph}  style={{width:"120px", height:"120px"}}/>
+            <Avatar alt="J" src={Joseph}  style={{width:"50px", height:"50px"}}/>
             )}
          else if(state==="Nikhil Parashar"){
             return (
-                <Avatar alt="N" src={Nikhil}  style={{width:"120px", height:"120px"}} />
+                <Avatar alt="N" src={Nikhil}  style={{width:"50px", height:"50px"}} />
             )} 
         else if(state==="Marie Forleo"){
             return ( 
-                <Avatar alt="P" src={Marie} style={{width:"120px", height:"120px"}}/>
+                <Avatar alt="P" src={Marie} style={{width:"50px", height:"50px"}}/>
              )
             }
         else if(state==="Nikita Singh"){
             return(
-                <Avatar alt="N" src={Nikita}  style={{width:"120px", height:"120px"}} />
+                <Avatar alt="N" src={Nikita}  style={{width:"50px", height:"50px"}} />
             )
         }
         else {
             return(
-                <Avatar alt="N" src={Vatsalya} style={{width:"120px", height:"120px"}}/>
+                <Avatar alt="N" src={Vatsalya} style={{width:"50px", height:"50px"}}/>
             )
         }
         

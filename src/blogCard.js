@@ -47,7 +47,7 @@ class BlogDisplay extends Component {
               </div>
              <div className='blogText'>
                <div className='blogTitle'>
-                  <Link to={`/blogs/${splitString}`} style={{textDecoration:"none"}}><h3>{this.state.title}</h3></Link>
+                  <Link to={`/blogs/${splitString}`} style={{textDecoration:"none"}}><p>{this.state.title}</p></Link>
                </div>
                <div className='blogContent'>
                 <p dangerouslySetInnerHTML={{__html :body}}/>

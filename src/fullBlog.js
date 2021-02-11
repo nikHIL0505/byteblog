@@ -12,6 +12,7 @@ import {faEdit, faTrashAlt} from '@fortawesome/free-solid-svg-icons'
 import AuthorAvatar from './authorAvatar'
 import {Skeleton} from "@material-ui/lab"
 import {firebaseAuth} from './provider/authProvider';
+import BlogCardTime from './blogCardTime'
 function BlogItems({match}){
      
      const [state, setState] = useState({});  
@@ -55,21 +56,31 @@ function BlogItems({match}){
     
       <div className="fullPage">
           <div className="fullPost">
-            {loading ?<div><Skeleton animation="wave"  width="80%" height={30}/><Skeleton animation="wave"  width="50%" height={30}/></div> :<div className="displayTitle">{state.title}</div>}
-            
-            {loading ? <Skeleton animation="wave" variant="rect" width="80%" height="100vh" style={{marginTop:"50px"}}/> : <ReactQuill
-             value={state.content}
-             readOnly
-             theme="bubble"
-             className="displayContent"
-            />}
-          </div>
-         <div className="fullIntro">
-         { loading ? <Skeleton animation="wave" variant="circle" width={120} height={120}/> : <AuthorAvatar author={state.author} />}
-         { loading? <Skeleton animation="wave" height={20} width={130}/>   :<p>{state.author}</p>}
-         {token ? <div className="displayButton">
-          {loading ? <Skeleton animation="wave" height={40} width={30}/> : <FontAwesomeIcon icon={faTrashAlt}  style={{marginLeft:"5%",cursor:"pointer"}} size="2x"  onClick={() => setDeleteShow(true)}/>}
-          <Modal show={deleteShow} onHide={() =>setDeleteShow(false)}>
+            {loading ? 
+              <div>
+                <Skeleton animation="wave"  width="80%" height={30}/>
+                <Skeleton animation="wave"  width="50%" height={30}/>
+              </div> : <div className="displayTitle">{state.title}</div>}
+             
+            {loading ?
+              <div style={{display:"flex", flexDirection:"row",marginTop:"5vh",marginBottom:"6vh",paddingLeft:"20px"}}>
+                <Skeleton animation="wave" variant="circle" width="50px" height="50px"/>
+                 <div style={{paddingLeft:"8px", paddingTop:"8px"}}>
+                  <Skeleton animation="wave" width="80px" height={15}/>
+                  <Skeleton animation="wave" width="80px" height={15}/>
+                 </div>
+               </div> 
+               : <div style={{display:"flex",flexDirection:"row",marginTop:"5vh",marginBottom:"6vh",paddingLeft:"20px"}}><AuthorAvatar author={state.author}/>
+                 <div style={{paddingLeft:"8px", paddingTop:"8px", fontSize:"14px", fontFamily:"Montserrat', sans-serif"}}>
+                   <p style={{marginBottom:"0px"}}>{state.author}</p>
+                   <BlogCardTime time={state.created_at}/>
+                 </div>
+                 <div>
+             {token ? <div className="displayButton">
+              <div style={{marginLeft:"150px", display:"flex", flexDirection:"row"}}>
+               {loading ? <Skeleton animation="wave" height={40} width={30}/>
+                       : <FontAwesomeIcon icon={faTrashAlt}  style={{marginLeft:"5%",cursor:"pointer"}} size="2x"  onClick={() => setDeleteShow(true)}/>}
+              <Modal show={deleteShow} onHide={() =>setDeleteShow(false)}>
                 <Modal.Header closeButton>
                   <Modal.Title>Alert!</Modal.Title>
                 </Modal.Header>
@@ -84,7 +95,7 @@ function BlogItems({match}){
                 </Modal.Footer>
               </Modal>
              {loading ? <Skeleton animation="wave" height={40} width={30}/> : <FontAwesomeIcon icon={faEdit}  style={{marginLeft:"5%",cursor:"pointer"}} size="2x"  onClick={() => setUpdateShow(true)}/>}
-            <Modal show={updateShow} onHide={() =>setUpdateShow(false)}>
+               <Modal show={updateShow} onHide={() =>setUpdateShow(false)}>
                 <Modal.Header closeButton>
                   <Modal.Title>Alert!</Modal.Title>
                 </Modal.Header>
@@ -97,9 +108,18 @@ function BlogItems({match}){
                     Update
                   </Button>
                 </Modal.Footer>
-              </Modal></div> : null}
+              </Modal></div></div> : null}
         </div>
-      </div> 
+              </div>
+            }                
+            {loading ? <Skeleton animation="wave" variant="rect" width="80%" height="100vh" style={{marginTop:"50px"}}/> : <ReactQuill
+             value={state.content}
+             readOnly
+             theme="bubble"
+             className="displayContent"
+            />}
+          </div>
+       </div> 
      )}       
 }
  

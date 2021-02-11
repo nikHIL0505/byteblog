@@ -1,16 +1,17 @@
 .blogBound1{  
     min-height: 15em;
+    max-width: 850px;
     background-color: white;
     box-sizing: border-box;
      margin-top: 4em;
      padding: 20px 30px;
      border-radius: 70px 20px 70px 70px;
-     box-shadow: 2px 3px 4px   rgb(65, 138, 180);
+     box-shadow: 2px 3px 4px   rgb(20, 141, 60);
      transition:  0.3s;
      
 }
  .blogBound1:hover {
-    box-shadow: 6px 8px 6px  rgb(65, 138, 180);
+    box-shadow: 6px 8px 2px  rgb(20, 141, 60);
     
 } 
 .author_avatar{
@@ -41,9 +42,10 @@
 .blogTitle :hover{
     color: rgb(70, 161, 184);
 }
-.blogTitle h3{
+.blogTitle p{
     color:rgb(17, 16, 16);
     font-weight: bold;
+    font-size: 2rem;
 }
 .blogContent{
     box-sizing: border-box;
@@ -58,8 +60,8 @@
 .lower-area{
     display: flex;
     margin-top: .5em;
-    
     height: 2em;
+    padding-left: 4%;
 }
 .lower-area1{
      flex: 1;

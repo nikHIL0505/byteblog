@@ -44,7 +44,7 @@ function Time(props) {
             month="Dec"
          }
    return(
-       <p style={{color:' rgb(126, 123, 123)'}}>{`${month} ${date}, ${year}`}</p>
+       <p style={{marginBottom:"0px"}}>{`${month} ${date}, ${year}`}</p>
    ) 
 }
 export default Time;

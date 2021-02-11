@@ -22,6 +22,7 @@ const SignOut = (props) =>{
     }
   }, [signOut, handleSignOut, props.history, signOutModal])
     return (
+         <div style={{minHeight:"100vh"}}>
         <Modal show={signOutModal} onHide={() =>setSignOutModal(false)}>
                 <Modal.Header closeButton>
                   <Modal.Title>Alert!</Modal.Title>
@@ -36,6 +37,7 @@ const SignOut = (props) =>{
                   </Button>
                 </Modal.Footer>
               </Modal>
+            </div>
     )
 }
 

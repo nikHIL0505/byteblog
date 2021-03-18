@@ -2,7 +2,6 @@ import React, {Suspense, lazy} from 'react';
 import SignUp from './components/signUp';
 import {BrowserRouter as Router,Switch,Route} from 'react-router-dom'
 import BlogItems from "./fullBlog"
-import Scroll from './scrollOn';
 import PostBlogQuill from './Admin/postBlogQuill';
 import ProtectedRoute from './Admin/protectedRoute';
 const Home = lazy(() => import('./homepage'));
@@ -17,7 +16,6 @@ function App() {
        <Router>
          <Suspense fallback={<div style={{textAlign:'center',fontSize:"50px", color:"skyblue"}}>Loading...</div>}>
           <Navbar/>
-          <Scroll/>
            <Switch>
              
              <Route exact path='/' component={Home}/>

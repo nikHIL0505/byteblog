@@ -10,8 +10,16 @@
      transition:  0.3s;
      
 }
+
+@media (max-width:600px){
+    .blogBound1{
+        background-color: aqua;
+    }
+}
+
+
  .blogBound1:hover {
-    box-shadow: 6px 8px 2px  rgb(20, 141, 60);
+    box-shadow: 6px 8px 2px  rgb(190, 192, 191);
     
 } 
 .author_avatar{
@@ -56,11 +64,6 @@
 .reactQuill{
     margin:0;
     padding: 0;
-}
-
-
-._reboot.scss p{
-    margin-bottom: 0;
 }
 
 

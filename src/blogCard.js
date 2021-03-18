@@ -5,6 +5,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBookmark } from '@fortawesome/free-solid-svg-icons'
 import {Avatar} from '@material-ui/core'
 import {Link} from 'react-router-dom'
+import Fade from 'react-reveal/Fade';
 import BlogCardTime from './blogCardTime'
 class BlogDisplay extends Component {
     constructor(props) {
@@ -37,6 +38,7 @@ class BlogDisplay extends Component {
          splitString = splitString.split(' ').join('-')
 
         return ( 
+           <Fade> 
             <div className='blogBound1'>
               <div className="author_avatar">
                <Avatar alt="N" src={this.state.img} style={{width:"50px" , height:"50px"}}/> 
@@ -63,6 +65,7 @@ class BlogDisplay extends Component {
                    </div>
                 </div>
           </div>
+          </Fade>
          );
     }
 }

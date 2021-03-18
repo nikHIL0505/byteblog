@@ -37,7 +37,7 @@
 .blogTitle{
     box-sizing: border-box;
     min-height:2.5em;
-    margin-bottom: 0.25em;
+    /* margin-bottom: 0.25em; */
 }
 .blogTitle :hover{
     color: rgb(70, 161, 184);
@@ -45,7 +45,7 @@
 .blogTitle p{
     color:rgb(17, 16, 16);
     font-weight: bold;
-    font-size: 2rem;
+    font-size: 1.5rem;
 }
 .blogContent{
     box-sizing: border-box;
@@ -57,6 +57,13 @@
     margin:0;
     padding: 0;
 }
+
+
+._reboot.scss p{
+    margin-bottom: 0;
+}
+
+
 .lower-area{
     display: flex;
     margin-top: .5em;
